@@ -1,0 +1,10 @@
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\bin\Debug\BBDD-ConexionBD.exe.config
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\bin\Debug\BBDD-ConexionBD.exe
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\bin\Debug\BBDD-ConexionBD.pdb
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD-ConexionBD.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD_ConexionBD.Form1.resources
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD_ConexionBD.Properties.Resources.resources
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD-ConexionBD.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD-ConexionBD.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD-ConexionBD.exe
+C:\Users\ASUS\source\repos\BBDD-ConexionBD\obj\Debug\BBDD-ConexionBD.pdb
