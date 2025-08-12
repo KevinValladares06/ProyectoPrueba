@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnConectar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnConectar
+            // btnCrear
             // 
-            this.btnConectar.Location = new System.Drawing.Point(304, 172);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(121, 73);
-            this.btnConectar.TabIndex = 0;
-            this.btnConectar.Text = "Boton";
-            this.btnConectar.UseVisualStyleBackColor = true;
-            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
+            this.btnCrear.Location = new System.Drawing.Point(283, 163);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(164, 124);
+            this.btnCrear.TabIndex = 0;
+            this.btnCrear.Text = "Crear Cliente";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnConectar);
+            this.Controls.Add(this.btnCrear);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -55,7 +55,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnConectar;
+        private System.Windows.Forms.Button btnCrear;
     }
 }
 

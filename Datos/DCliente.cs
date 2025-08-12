@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,22 +17,22 @@ namespace BBDD_ConexionBD.Datos
         private string numId;
         private string direccion;
         private string telefono;
-        private string calificacion;
+        //private string calificacion;
 
         private SqlCommand cmd; //objeto que nos permite ejecutar procedimeintos crud
 
 
         //Constructor
 
-        public DCliente(int id, string nombres, string apellidos, string numId, string direccion, string telefono, string calificacion)
+        public DCliente(string nombres, string apellidos, string numId, string direccion, string telefono)
         {
-            this.id = id;
+            //this.id = id;
             this.nombres = nombres;
             this.apellidos = apellidos;
             this.numId = numId;
             this.direccion = direccion;
             this.telefono = telefono;
-            this.calificacion = calificacion;
+            //this.calificacion = calificacion;
         }
 
         public int ID
@@ -71,12 +72,14 @@ namespace BBDD_ConexionBD.Datos
 
             set { telefono = value; }
         }
+
+        /*
         public string CALIFICACION
         {
             get { return calificacion; }
 
             set { calificacion = value; }
-        }
+        }*/
 
 
         //metodo para insertar registro
@@ -85,8 +88,10 @@ namespace BBDD_ConexionBD.Datos
 
             try
             {
-                cmd = new SqlCommand("INSERT INTO CLIENTES(NOMBRES,APELLIDOS,DIRECCION,TELEFONO,CALIFICACION,NUM_ID)" +
-                "VALUES('" + nombres + "','" + apellidos + "','" + direccion + "','" + telefono + "','" + calificacion + "','" + numId + "')"); //argumetno del constructor
+                conectar();
+
+                cmd = new SqlCommand("INSERT INTO tienda.clientes(NOMBRES,APELLIDOS,DIRECCION,TELEFONO,CALIFICACION,NUM_ID)" +
+                "VALUES('" + nombres + "','" + apellidos + "','" + direccion + "','" + telefono + "','A','" + numId + "')"); //argumetno del constructor
 
                 cmd.Connection = bd;
 
@@ -108,7 +113,35 @@ namespace BBDD_ConexionBD.Datos
             {
                 desconectar(); //si se interrumpe la conexion con la base de datos 
             }
+
+
             
+            
+        }
+
+        public bool existeCliente()
+        {
+            try
+            {
+                conectar();
+
+                string consulta = "SELECT COUNT(*) FROM tienda.clientes WHERE NUM_ID = @numId";
+                cmd = new SqlCommand(consulta, bd);
+                cmd.Parameters.AddWithValue("@numId", numId);
+
+                int count = (int)cmd.ExecuteScalar();
+
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar existencia del cliente: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                desconectar();
+            }
         }
     }
 }
