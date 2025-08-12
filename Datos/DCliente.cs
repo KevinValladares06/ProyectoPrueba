@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -17,7 +18,7 @@ namespace BBDD_ConexionBD.Datos
         private string numId;
         private string direccion;
         private string telefono;
-        //private string calificacion;
+        private string calificacion;
 
         private SqlCommand cmd; //objeto que nos permite ejecutar procedimeintos crud
 
@@ -33,6 +34,11 @@ namespace BBDD_ConexionBD.Datos
             this.direccion = direccion;
             this.telefono = telefono;
             //this.calificacion = calificacion;
+        }
+
+        public DCliente()//Constructor vacio
+        {
+            
         }
 
         public int ID
@@ -73,13 +79,13 @@ namespace BBDD_ConexionBD.Datos
             set { telefono = value; }
         }
 
-        /*
+        
         public string CALIFICACION
         {
             get { return calificacion; }
 
             set { calificacion = value; }
-        }*/
+        }
 
 
         //metodo para insertar registro
@@ -137,6 +143,54 @@ namespace BBDD_ConexionBD.Datos
             {
                 MessageBox.Show("Error al verificar existencia del cliente: " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+
+        public DCliente getDatosCliente()
+        {
+            try
+            {
+                conectar();
+
+                string consulta = "SELECT * FROM [tienda].[tienda].[clientes] WHERE NUM_ID = @numId";
+                cmd = new SqlCommand(consulta, bd);
+                cmd.Parameters.AddWithValue("@numId", numId);
+
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    return null; // No encontrado
+                }
+
+                DataRow dr = dt.Rows[0];
+
+                DCliente dc = new DCliente(
+                    dr["NOMBRES"].ToString(),
+                    dr["APELLIDOS"].ToString(),
+                    numId,
+                    dr["DIRECCION"].ToString(),
+                    dr["TELEFONO"].ToString()
+                );
+
+                dc.ID = int.Parse(dr["ID"].ToString());
+                dc.CALIFICACION = dr["CALIFICACION"].ToString();
+
+                return dc;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar existencia del cliente: " + ex.Message);
+                return null;
             }
             finally
             {

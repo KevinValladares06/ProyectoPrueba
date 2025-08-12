@@ -33,5 +33,13 @@ namespace BBDD_ConexionBD
 
             
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            ConsultarForm formConsultar = new ConsultarForm();  //Instancia
+            this.Hide();
+
+            formConsultar.Show();
+        }
     }
 }

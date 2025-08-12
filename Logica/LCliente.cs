@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,23 @@ namespace BBDD_ConexionBD.Logica
             }
             catch (Exception ex)
             {
-                MessageBox.Show("hola"+ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public DCliente getDatosCliente(string numId)
+        {
+            try
+            {
+                DCliente dc = new DCliente();
+                dc.NUM_ID= numId;
+                return dc.getDatosCliente();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
     }
