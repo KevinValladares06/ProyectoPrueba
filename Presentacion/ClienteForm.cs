@@ -26,7 +26,7 @@ namespace BBDD_ConexionBD.Presentacion
                 LCliente lc = new LCliente();
 
                 //mandamos a llamar al metodo crear
-                lc.crear(txtNombres.Text, txtApellidos.Text,txtId.Text, txtDireccion.Text, txtTelefono.Text);
+                lc.crear(txtNombres.Text,txtApellidos.Text,txtId.Text,txtDireccion.Text,txtTelefono.Text);
             }
             catch(Exception ex)
             {

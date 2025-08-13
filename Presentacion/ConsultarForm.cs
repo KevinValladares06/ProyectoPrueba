@@ -76,5 +76,24 @@ namespace BBDD_ConexionBD.Presentacion
                 MessageBox.Show("Error al actualizar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Crear objeto con los datos del formulario
+                LCliente lc = new LCliente();
+
+                lc.Eliminar(
+                    int.Parse(txtIdCliente.Text)
+                );
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Eliminar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

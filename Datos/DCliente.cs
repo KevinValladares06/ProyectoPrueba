@@ -132,10 +132,7 @@ namespace BBDD_ConexionBD.Datos
             finally
             {
                 desconectar(); //si se interrumpe la conexion con la base de datos 
-            }
-
-
-            
+            }  
             
         }
 
@@ -145,13 +142,16 @@ namespace BBDD_ConexionBD.Datos
             {
                 conectar();
 
-                string consulta = "SELECT COUNT(*) FROM tienda.clientes WHERE NUM_ID = @numId";
+                string consulta = "SELECT * FROM tienda.clientes WHERE NUM_ID ='" + numId + "'";
                 cmd = new SqlCommand(consulta, bd);
-                cmd.Parameters.AddWithValue("@numId", numId);
-
-                int count = (int)cmd.ExecuteScalar();
-
-                return count > 0;
+               if (cmd.ExecuteNonQuery() == -1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -243,6 +243,35 @@ namespace BBDD_ConexionBD.Datos
         }
 
 
-       
+        public bool Eliminar()
+        {
+            try
+            {
+                conectar();
+
+                string consulta = "DELETE FROM tienda.clientes WHERE ID =" + id;
+                cmd = new SqlCommand(consulta, bd);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar existencia del cliente: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+
     }
 }
