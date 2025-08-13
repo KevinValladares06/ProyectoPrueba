@@ -43,11 +43,11 @@
             this.txtCalificacionCliente = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtTelefonoCliente
             // 
-            this.txtTelefonoCliente.Enabled = false;
             this.txtTelefonoCliente.Location = new System.Drawing.Point(128, 259);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.Size = new System.Drawing.Size(259, 22);
@@ -55,7 +55,6 @@
             // 
             // txtDireccionCliente
             // 
-            this.txtDireccionCliente.Enabled = false;
             this.txtDireccionCliente.Location = new System.Drawing.Point(128, 207);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.Size = new System.Drawing.Size(259, 22);
@@ -70,7 +69,6 @@
             // 
             // txtApellidosCliente
             // 
-            this.txtApellidosCliente.Enabled = false;
             this.txtApellidosCliente.Location = new System.Drawing.Point(128, 162);
             this.txtApellidosCliente.Name = "txtApellidosCliente";
             this.txtApellidosCliente.Size = new System.Drawing.Size(259, 22);
@@ -78,7 +76,6 @@
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(128, 113);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(259, 22);
@@ -149,7 +146,6 @@
             // 
             // txtCalificacionCliente
             // 
-            this.txtCalificacionCliente.Enabled = false;
             this.txtCalificacionCliente.Location = new System.Drawing.Point(128, 308);
             this.txtCalificacionCliente.Name = "txtCalificacionCliente";
             this.txtCalificacionCliente.Size = new System.Drawing.Size(259, 22);
@@ -166,7 +162,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(474, 162);
+            this.btnConsultar.Location = new System.Drawing.Point(469, 143);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(194, 61);
             this.btnConsultar.TabIndex = 35;
@@ -174,11 +170,22 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(469, 240);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(194, 61);
+            this.btnActualizar.TabIndex = 36;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // ConsultarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 413);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.txtCalificacionCliente);
             this.Controls.Add(this.label7);
@@ -218,5 +225,6 @@
         private System.Windows.Forms.TextBox txtCalificacionCliente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

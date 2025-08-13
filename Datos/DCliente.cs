@@ -36,6 +36,20 @@ namespace BBDD_ConexionBD.Datos
             //this.calificacion = calificacion;
         }
 
+
+        public DCliente(string nombres, string apellidos, string numId, string direccion, string telefono, string cal)
+        {
+            //this.id = id;
+            this.nombres = nombres;
+            this.apellidos = apellidos;
+            this.numId = numId;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.calificacion = cal;
+            //this.calificacion = calificacion;
+        }
+
+
         public DCliente()//Constructor vacio
         {
             
@@ -197,5 +211,38 @@ namespace BBDD_ConexionBD.Datos
                 desconectar();
             }
         }
+
+
+        public bool Actualizar()
+        {
+            try
+            {
+                conectar();
+
+                string consulta = "UPDATE [tienda].[tienda].[clientes] SET NOMBRES='" + nombres+"',APELLIDOS='"+apellidos+"',DIRECCION='"+direccion+"',TELEFONO='"+telefono+"',CALIFICACION='"+calificacion+"',NUM_ID='"+numId+"' WHERE ID =" + id;
+                cmd = new SqlCommand(consulta, bd);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al verificar existencia del cliente: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+
+       
     }
 }

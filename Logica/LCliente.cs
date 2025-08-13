@@ -46,5 +46,29 @@ namespace BBDD_ConexionBD.Logica
                 return null;
             }
         }
+
+
+        public void Actualizar(int idC, string nom, string ape, string nid, string dire, string tel, string cal)
+        {
+
+            try
+            {
+                DCliente dc = new DCliente(nom, ape, nid, dire, tel, cal);
+
+                dc.ID = idC;
+
+                if (dc.existeCliente() == true)
+                {
+                    if (dc.Actualizar() == true)
+                    {
+                        MessageBox.Show("Cliente se ha actualizado Correctamente");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
